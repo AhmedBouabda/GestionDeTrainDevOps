@@ -1,0 +1,46 @@
+pipeline 
+{
+    agent any
+
+    stages 
+    {
+        stage('Checkout') 
+        {
+            steps 
+            {
+                
+                git branch: 'AhmedBranch', credentialsId: 'PrivateGitAuth', url: 'https://github.com/AhmedBouabda/GestionDeTrainDevOps.git'
+            }
+        }
+        stage('Maven-clean')
+        {
+            steps
+            {
+                    script
+                   {
+                        sh 'mvn clean'
+                    }
+            }
+        }
+        stage('Maven-test')
+            {
+                        steps
+                        {
+                            script
+                            {
+                                sh 'mvn test'
+                            }
+                        }
+            }
+        stage('Compile-package')
+            {
+                steps
+                {
+                    script
+                    {
+                        sh 'mvn package'
+                    }
+                }
+            }           
+    }
+}
