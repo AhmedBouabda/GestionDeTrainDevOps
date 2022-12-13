@@ -136,9 +136,8 @@ public class TrainServiceImpl implements ITrainService {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         System.out.println("In Schedular After Try");
         for (int i = 0; i < lesvoyages.size(); i++) {
-            if (lesvoyages.get(i).getDateArrivee().before(date)) {
+            if (lesvoyages.get(i).getDateArrivee().before(date))
                 System.out.println("les trains sont " + lesvoyages.get(i).getTrain().getCodeTrain());
-            }
             else{
 
             }
